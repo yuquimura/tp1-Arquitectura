@@ -1,6 +1,19 @@
 version: '2'
 
 services:
+    node:
+        build: ./js
+        volumes:
+            - ./js:/app
+            - /app/node_modules
+        command: npm start
+    
+    gunicorn:
+        build: ./py
+        volumes:
+            - ./py:/app
+        command: gunicorn app:app --bind=0.0.0.0:8000 --workers=1
+
     nginx:
         image: nginx:1.18.0
         ports:
