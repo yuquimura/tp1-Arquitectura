@@ -13,5 +13,14 @@ def esperar():
     time.sleep(TIMEOUT)
     return "Timeout"
 
+@app.route('/intense')
+def intense():
+    init = time.time()
+    now = init
+    while (now - init) < TIMEOUT:
+        now = time.time()
+    
+    return 'Intense'
+
 if __name__ == "__main__":
     app.run()

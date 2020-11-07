@@ -14,6 +14,15 @@ app.get('/timeout', (req,res) => {
     },TIMEOUT);
 });
 
+app.get('/intense', (req, res) => {
+    let init = new Date();
+    let now = init;
+    while (now - init < TIMEOUT) {
+        now = new Date(); 
+    }
+    res.status(200).send('intense - ' + ID);
+})
+
 app.listen(PORT, () => {
     console.log('Escuchando en el puerto', PORT)
 });

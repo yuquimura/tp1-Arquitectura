@@ -36,7 +36,7 @@ services:
             - "8126:8126"
 
     grafana:
-        image: grafana/grafana:7.2.1
+        image: grafana/grafana:6.3.3
         ports:
             - "80:3000"
         volumes:
@@ -54,6 +54,15 @@ services:
             - "/var/run:/var/run:rw"
             - "/sys:/sys:ro"
             - "/var/lib/docker/:/var/lib/docker:ro"
+
+    bbox:
+        image: arqsoft/bbox:202002.1
+        ports:
+            - "9090:9090"
+            - "9091:9091"
+        volumes:
+            - ./config.properties:/opt/bbox/config.properties
+
 
 volumes:
     grafana_config:
