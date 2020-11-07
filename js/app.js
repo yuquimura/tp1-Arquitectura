@@ -15,5 +15,5 @@ app.get('/timeout', (req,res) => {
 });
 
 app.listen(PORT, () => {
-    CONSOLE.LOG('Escuchando en el puerto', PORT)
+    console.log('Escuchando en el puerto', PORT)
 });

@@ -1,6 +1,7 @@
-FROM node:10FROM
-RUN mkdir /apt/app
-WORKDIR /apt/app
+FROM node:10
+RUN mkdir /app
+WORKDIR /app
 COPY app.js package.json package-lock.json ./
 RUN npm i
-ENTRYPOINT ['node','app.js']
+EXPOSE 3000
+CMD [ "node", "app.js" ]
