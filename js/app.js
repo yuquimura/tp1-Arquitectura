@@ -17,8 +17,10 @@ app.get('/timeout', (req,res) => {
 app.get('/intense', (req, res) => {
     let init = new Date();
     let now = init;
+    let n = 100;
     while (now - init < TIMEOUT) {
         now = new Date(); 
+        n = n*n;
     }
     res.status(200).send('intense - ' + ID);
 })

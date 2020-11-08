@@ -17,8 +17,10 @@ def esperar():
 def intense():
     init = time.time()
     now = init
+    n = 100
     while (now - init) < TIMEOUT:
         now = time.time()
+        n = n*n
     
     return 'Intense'
 
