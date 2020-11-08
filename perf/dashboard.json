@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1602517370253,
+  "iteration": 1604847992829,
   "links": [],
   "panels": [
     {
@@ -25,6 +25,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Graphite",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -60,7 +61,123 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "hide": false,
+          "refCount": 0,
+          "refId": "A",
+          "target": "alias(stats.gauges.$server.rps.count, 'Requests attempted')",
+          "textEditor": false
+        },
+        {
+          "hide": false,
+          "refCount": 0,
+          "refId": "C",
+          "target": "alias(stats.gauges.$server.requestsCompleted, 'Requests completed')"
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "alias(stats.gauges.$server.scenariosCompleted, 'scenariosLaunched')",
+          "textEditor": false
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Scenarios launched (stacked)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "rps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Graphite",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "height": "250px",
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 250,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true,
+        "dataLinks": []
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
@@ -88,7 +205,7 @@
         {
           "refCount": 0,
           "refId": "B",
-          "target": "aliasByMetric(stats.gauges.$server.scenarioCounts.*)",
+          "target": "aliasByMetric(stats.gauges.$server.scenariosCreated)",
           "textEditor": false
         }
       ],
@@ -96,7 +213,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Scenarios launched (stacked)",
+      "title": "Scenarios created (stacked)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -157,7 +274,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 14
       },
       "height": "250",
       "hiddenSeries": false,
@@ -180,7 +297,8 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "dataLinks": []
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
@@ -265,7 +383,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 21
       },
       "height": "250px",
       "hiddenSeries": false,
@@ -289,7 +407,8 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "dataLinks": []
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
@@ -304,10 +423,10 @@
         {
           "refCount": 0,
           "refId": "C",
-          "target": "alias(stats.gauges.$server.scenarioDuration.max, 'Upper')"
+          "target": "aliasByMetric(stats.gauges.$server.scenarioDuration.max)"
         },
         {
-          "hide": true,
+          "hide": false,
           "refCount": 0,
           "refId": "A",
           "target": "aliasByMetric(stats.gauges.$server.scenarioDuration.min)"
@@ -315,13 +434,19 @@
         {
           "refCount": 0,
           "refId": "B",
-          "target": "alias(stats.gauges.$server.scenarioDuration.median, 'Median')"
+          "target": "aliasByMetric(stats.gauges.$server.scenarioDuration.median)"
         },
         {
-          "hide": true,
+          "hide": false,
           "refCount": 0,
           "refId": "D",
-          "target": "stats.gauges.$server.scenarioDuration.max"
+          "target": "alias(stats.gauges.$server.scenarioDuration.p99, 'p99')"
+        },
+        {
+          "hide": false,
+          "refCount": 0,
+          "refId": "E",
+          "target": "alias(stats.gauges.$server.scenarioDuration.p95, 'p95')"
         }
       ],
       "thresholds": [],
@@ -385,7 +510,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 28
       },
       "height": "250px",
       "hiddenSeries": false,
@@ -410,7 +535,8 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "dataLinks": []
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
@@ -498,7 +624,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 26,
+  "schemaVersion": 19,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -506,8 +632,9 @@
       {
         "allValue": null,
         "current": {
-          "text": "artillery-node",
-          "value": "artillery-node"
+          "tags": [],
+          "text": "artillery-gunicorn",
+          "value": "artillery-gunicorn"
         },
         "hide": 0,
         "includeAll": false,
@@ -516,12 +643,12 @@
         "name": "server",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "artillery-node",
             "value": "artillery-node"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "artillery-gunicorn",
             "value": "artillery-gunicorn"
           }
@@ -533,8 +660,9 @@
       {
         "allValue": null,
         "current": {
-          "text": "tp1-arquitectura_node_1",
-          "value": "tp1-arquitectura_node_1"
+          "tags": [],
+          "text": "tp1-arquitectura_grafana_1",
+          "value": "tp1-arquitectura_grafana_1"
         },
         "hide": 0,
         "includeAll": false,
@@ -543,7 +671,7 @@
         "name": "container",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "tp1-arquitectura_node_1",
             "value": "tp1-arquitectura_node_1"
           },
@@ -563,7 +691,7 @@
             "value": "tp1-arquitectura_cadvisor_1"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "tp1-arquitectura_grafana_1",
             "value": "tp1-arquitectura_grafana_1"
           },
@@ -590,7 +718,7 @@
     ]
   },
   "time": {
-    "from": "now-3m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -619,7 +747,7 @@
     ]
   },
   "timezone": "",
-  "title": "Main dashboard",
+  "title": "Arqui",
   "uid": "arxIPammk",
-  "version": 1
+  "version": 7
 }
