@@ -264,3 +264,22 @@ docc exec SERVICE COMMAND
 # Versión instalada
 docc version
 ```
+
+
+## Levantar servicios
+
+Se debe ejecutar:
+```docker-compose up -d --scale node=3``` (en este caso serian 3 instancias del servicio de node)
+
+## Bajar los servicios
+
+Se debe ejecutar:
+```docker-compose down```
+
+## Modificaciones en el codigo de los servicios
+
+Si se realiza algun cambio en los servicios tanto de JS como de Python se debera eliminar las imagenes ejecutando lo siguiente:
+1. ```docker-compose down``` en caso de que los contenedores existan.
+2. ```docker images``` y buscar el nombre de la imagen que se desea volver a generar.
+3. ```docker rmi <image_name>```
+4. ```docker-compose up -d``` en este punto se deberia generar la imagen de nuevo.
