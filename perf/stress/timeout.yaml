@@ -30,11 +30,11 @@ config:
       arrivalRate: 0
     - name: Ramp
       duration: 60
-      arrivalRate: 2
-      rampTo: 500
+      arrivalRate: 5
+      rampTo: 600
     - name: Plain
       duration: 120
-      arrivalRate: 500
+      arrivalRate: 600
     - name: Cleanup
       duration: 30
       arrivalRate: 0
