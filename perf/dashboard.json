@@ -656,9 +656,19 @@
             "selected": false,
             "text": "artillery-node-replicated",
             "value": "artillery-node-replicated"
+          },
+          {
+            "selected": false,
+            "text": "artillery-bbox-9090",
+            "value": "artillery-bbox-9090"
+          },
+          {
+            "selected": false,
+            "text": "artillery-bbox-9091",
+            "value": "artillery-bbox-9091"
           }
         ],
-        "query": "artillery-node, artillery-gunicorn, artillery-node-replicated",
+        "query": "artillery-node, artillery-gunicorn, artillery-node-replicated, artillery-bbox-9091, artillery-bbox-9090", 
         "skipUrlSync": false,
         "type": "custom"
       },
