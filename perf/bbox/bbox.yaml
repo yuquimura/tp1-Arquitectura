@@ -19,7 +19,6 @@ config:
     pool: 50
 
   phases:
-    
      - name: Cleanup
        duration: 30
        arrivalRate: 0
@@ -30,16 +29,6 @@ config:
      - name: Cleanup
        duration: 60
        arrivalRate: 0
-
-    # - name: Cleanup
-    #   duration: 30
-    #   arrivalRate: 0
-    # - name: Plain
-    #   duration: 60
-    #   arrivalRate: 17
-    # - name: Cleanup
-    #   duration: 60
-    #   arrivalRate: 0
 
 scenarios:
   - name: root
