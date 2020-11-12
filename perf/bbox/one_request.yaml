@@ -24,17 +24,8 @@ config:
        duration: 30
        arrivalRate: 0
      - name: Plain
-       duration: 30
-       arrivalRate: 4
-     - name: Plain
-       duration: 30
-       arrivalRate: 5
-     - name: Plain
-       duration: 30
-       arrivalRate: 6
-     - name: Plain
-       duration: 30
-       arrivalRate: 7
+       duration: 60
+       arrivalRate: 1
      - name: Cleanup
        duration: 60
        arrivalRate: 0
